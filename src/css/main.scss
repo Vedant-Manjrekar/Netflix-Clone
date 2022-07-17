@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@100;200;300;400;500;800&family=Karla:ital,wght@0,400;0,500;1,400&family=Staatliches&display=swap');
+
+@mixin flex() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+*{
+    box-sizing: border-box
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #111;
+}
+
+.App{
+    
+    display: block;
+
+    
+    .main--row{
+        margin-left: auto;
+        flex-direction: column;
+        
+        .row--title{
+            text-align: left;
+            margin: .5rem 2rem;
+            font-family: 'Bebas Neue', cursive;
+            font-size: 3rem;
+            color: white;
+            margin-right: auto;
+        }
+        
+        .row--posters{
+            display: flex;
+            transition: 1s;
+            margin: 0 .5rem;
+            overflow-x: scroll;
+            overflow-y: hidden;
+            
+            
+            .row--poster {
+                transition: .5s;
+                padding: .8rem;
+                
+                img{
+                    height: 34vh;
+                    width: 18vw;
+                }
+            }
+            
+            .row--poster--large{
+                img{
+
+                    height: 60vh;
+                    width: 30vw;
+                }
+            }
+            
+            .row--poster:hover {
+                transform: scale(1.08);
+                opacity: .8;
+                cursor: pointer;
+            }
+        }
+
+        .row--posters::-webkit-scrollbar{
+            display: none;
+        }
+
+}
+
+}
+
+body::-webkit-scrollbar{
+    display: none;
+}
+
+.banner{
+    transition: 1s;
+    opacity: 1;
+    z-index: 0;
+    width: 100vw;
+}
+
+.banner:hover{
+    // opacity: .8;
+    cursor: pointer;
+    transition: 1s;
+    
+}
+
+.banner--content{
+    @include flex();
+    flex-direction: column;
+    width: 100vw;
+    opacity: 0;
+    justify-content: center;
+    color: white;
+    font-family: 'Bebas Neue';
+    height: 78vh;
+    text-shadow: 1px 1px 8px black;
+    transition: 1s;
+    
+    p{
+        @include flex();
+        text-align: center;
+        font-size: 3rem;
+        margin: 0 1rem;
+    }
+
+}
+
+.banner--content:hover{
+    @include flex();
+    flex-direction: column;
+    opacity: 1;
+    justify-content: center;
+    color: white;
+    font-family: 'Bebas Neue';
+    font-size: 6rem;
+    height: 78vh;
+    text-shadow: 1px 1px 8px black;
+    transition: 1s;
+}
+
+.banner--overview{
+    font-size: 1rem;
+    font-family: sans-serif;
+    text-align: center;
+    margin: 0 8rem;
+}
+
+.banner--buttons{
+    @include flex();
+    justify-content: space-evenly;
+    width: 70vw;
+
+
+    .banner--btn{
+        width: 20vw;
+        height: 7vh;
+        margin-top: 2rem;
+        font-size: 1.5rem;
+        background-color: rgba(51, 51, 51, 0.5);
+        border: none;
+        border: 1px solid white;
+        color: white;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+
+    .banner--btn:hover{
+        background-color: rgb(222, 225, 225);
+        background-color: white;
+        color: black;
+    }
+
+}
+
+.banner--fade{
+    height: 8rem;
+    width: 100vw;
+    transform: translateY(-8rem);
+    background-image: linear-gradient(180deg, transparent, rgba(37, 37, 37, 0.61), #111);
+}
+
+.navbar{
+    display: grid;
+    position: absolute;
+    width: 100vw;
+    justify-content: space-between;
+    height: 10vh;
+    z-index: 1;
+    background-color: transparent;
+    grid-template-columns: 1fr auto;
+    position: fixed;
+    transition: .4s;
+    transition-timing-function: ease-in-out;
+    
+    .netflix--logo{
+        cursor: pointer;
+        display: block;
+        height: 10vh;
+        width: 80px;
+        object-fit: contain;
+        background-repeat: no-repeat;
+        z-index: 2;
+        margin-left: 1rem;
+    }
+    
+    .smiley--accnt{
+        cursor: pointer;
+        height: 5vh;
+        width: 5vh;
+        background: url("https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png");
+        margin: 1rem;
+    }
+    
+}
+
+.nav_black{
+    background-color: black;
+    display: grid;
+    align-items: center;
+    transition: .4s;
+}
+
+@media (min-width: 0px) and (max-width: 550px){
+    .App .main--row .row--posters .row--poster img {
+        height: 34vh;
+        width: 36vw;
+    }
+    
+    .App .main--row .row--posters .row--poster--large img {
+        height: 60vh;
+        width: 58vw;
+    }
+    
+    
+}
+
+@media (min-width: 550px) and (max-width: 1000px){
+    .App .main--row .row--posters .row--poster img {
+        height: 32vh;
+        width: 37vw;
+    }
+    
+    .App .main--row .row--posters .row--poster--large img {
+        height: 60vh;
+        width: 58vw;
+    }
+}
