@@ -1,27 +1,45 @@
-import Row from "./Components/Row";
-import requests from "./requests";
-import Banner from "./Components/Banner";
-import Navbar from "./Components/Navbar";
+import React from "react";
+import { auth } from "./fireBase";
+import Homescreen from "./Components/Homescreen";
+import LoginScreen from "./Components/LoginScreen";
+import ProfileScreen from "./Components/ProfileScreen";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { login, logout, selectUser } from "./features/userSlice";
 
 function App() {
+  const dispatch = useDispatch();
+  const user = useSelector(selectUser);
+
+  console.log(user);
+
+  React.useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((userAuth) => {
+      if (userAuth) {
+        dispatch(
+          login({
+            uid: userAuth.uid,
+            email: userAuth.email,
+          })
+        );
+        console.log(userAuth);
+      } else {
+        dispatch(logout());
+      }
+    });
+
+    return unsubscribe;
+  }, [dispatch]);
+
   return (
     <div className="App">
-      <Navbar />
-
-      <Banner />
-
-      <Row
-        title="Netflix Originals."
-        fetchURL={requests.fetchNetflixOriginals}
-        isLargeRow
-      />
-      <Row title="Trending Now." fetchURL={requests.fetchTrending} />
-      <Row title="Top Rated." fetchURL={requests.fetchTopRated} />
-      <Row title="Action Movies." fetchURL={requests.fetchActionMovies} />
-      <Row title="Comedy Movies." fetchURL={requests.fetchComedyMovies} />
-      <Row title="Horror Movies." fetchURL={requests.fetchHorrorMovies} />
-      <Row title="Rom-Com." fetchURL={requests.fetchRomanceMovies} />
-      <Row title="Documentaries." fetchURL={requests.fetchDocumantaries} />
+      {/* using react-router for routing (handling requests.) */}
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={!user ? <LoginScreen /> : <Homescreen />} />
+          <Route path="/profile" element={<ProfileScreen />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

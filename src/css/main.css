@@ -35,11 +35,15 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-transition: 1s;
   transition: 1s;
-  margin: 0 .5rem;
+  margin: 0 0.5rem;
   overflow-x: scroll;
-  overflow-y: hidden;
+  position: relative;
+  height: 45vh;
 }
 
 .App .main--row .row--posters .row--poster {
@@ -53,20 +57,69 @@ body {
   width: 18vw;
 }
 
-.App .main--row .row--posters .row--poster--large img {
-  height: 60vh;
-  width: 30vw;
-}
-
 .App .main--row .row--posters .row--poster:hover {
-  -webkit-transform: scale(1.08);
-          transform: scale(1.08);
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
   opacity: .8;
   cursor: pointer;
 }
 
 .App .main--row .row--posters::-webkit-scrollbar {
   display: none;
+}
+
+.App .row--posters1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: 1s;
+  transition: 1s;
+  margin: 0 0.5rem;
+  overflow-x: scroll;
+  position: relative;
+}
+
+.App .row--posters1 .row--poster {
+  -webkit-transition: .5s;
+  transition: .5s;
+  padding: .8rem;
+}
+
+.App .row--posters1 .row--poster:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  opacity: .8;
+  cursor: pointer;
+}
+
+.App .row--posters1::-webkit-scrollbar {
+  display: none;
+}
+
+.App .row--poster--large {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: 1s;
+  transition: 1s;
+  margin: 0 0.5rem;
+  overflow-x: scroll;
+  position: relative;
+  height: 80vh;
+  gap: 2rem;
+  scroll-snap-align: start end;
+}
+
+.App .row--poster--large img {
+  height: 60vh;
+  width: 30vw;
+  border-radius: 6px;
 }
 
 body::-webkit-scrollbar {
@@ -159,6 +212,10 @@ body::-webkit-scrollbar {
   margin: 0 8rem;
 }
 
+.banner--overview .react-typewriter-text {
+  text-align: center;
+}
+
 .banner--buttons {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -216,11 +273,15 @@ body::-webkit-scrollbar {
   background-color: transparent;
   -ms-grid-columns: 1fr auto;
       grid-template-columns: 1fr auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   position: fixed;
   -webkit-transition: .4s;
   transition: .4s;
   -webkit-transition-timing-function: ease-in-out;
           transition-timing-function: ease-in-out;
+  opacity: 1;
 }
 
 .navbar .netflix--logo {
@@ -252,6 +313,316 @@ body::-webkit-scrollbar {
           align-items: center;
   -webkit-transition: .4s;
   transition: .4s;
+}
+
+.login {
+  color: white;
+}
+
+.nav {
+  z-index: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: fixed;
+  width: 100vw;
+}
+
+.nav .netflix--logo {
+  cursor: pointer;
+  display: block;
+  height: 10vh;
+  width: 80px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  background-repeat: no-repeat;
+  z-index: 2;
+  margin-left: 1rem;
+}
+
+.login--background {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100vh;
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, rgba(0, 0, 0, 0.8)), color-stop(60%, rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.8)));
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.8) 100%);
+}
+
+.login--background img {
+  opacity: .5;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.login--background .signup {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: fixed;
+  z-index: 1;
+}
+
+.login--background .signup .signup--box form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  height: 80vh;
+  width: 40vw;
+  font-family: sans-serif;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.login--background .signup .signup--box form h1 {
+  width: 29vw;
+  text-align: left;
+}
+
+.login--background .signup .signup--box form .inp {
+  width: 30vw;
+  height: 8vh;
+  border-radius: 6px;
+  border: none;
+  text-indent: 1rem;
+  font-size: 1rem;
+}
+
+.login--background .signup .signup--box form .extra--info {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 30vw;
+  -ms-grid-columns: 0fr 1fr auto;
+      grid-template-columns: 0fr 1fr auto;
+  font-size: .9rem;
+  color: gray;
+  -webkit-transform: translateY(-2rem);
+          transform: translateY(-2rem);
+}
+
+.login--background .signup .signup--box form .extra--info p:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.login--background .signup .signup--box form #btn {
+  background-color: #e50815;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.login--body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: fixed;
+  font-family: sans-serif;
+  z-index: 1;
+}
+
+.login--body h1 {
+  font-size: 3rem;
+  text-align: center;
+  margin: 0 12rem;
+}
+
+.login--body p {
+  text-align: center;
+}
+
+.login--body .p1 {
+  font-size: 1.5rem;
+}
+
+.login--body .p2 {
+  font-size: 1.2rem;
+}
+
+.login--body .email--box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100vw;
+}
+
+.login--body .email--box #email--login {
+  width: 45vw;
+  font-size: 1.5rem;
+  height: 10vh;
+  text-indent: 1rem;
+  cursor: text;
+}
+
+.login--body .email--box button {
+  width: 20vw;
+  height: 10vh;
+  background-color: #e50815;
+  border: none;
+  font-size: 1.6rem;
+  color: white;
+  cursor: pointer;
+}
+
+.sgnin {
+  width: 8vw;
+  height: 4vh;
+  margin-right: 1rem;
+  background-color: #e50815;
+  border: none;
+  border-radius: 2px;
+  color: white;
+}
+
+.registration {
+  text-align: left;
+  width: 29vw;
+  -webkit-transform: translateY(-2rem);
+          transform: translateY(-2rem);
+}
+
+.registration span {
+  color: gray;
+}
+
+.registration .signup--now {
+  color: white;
+  margin-left: 1rem;
+}
+
+.registration .signup--now:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.footer {
+  color: white;
+  width: -webkit-fill-available;
+  text-align: center;
+  padding: 2rem;
+  font-family: 'Bebas Neue';
+}
+
+.profile_screen {
+  color: white;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.profile_screen button {
+  width: 62vw;
+  color: white;
+  height: 8vh;
+  font-size: 1.4rem;
+  background-color: #e50815;
+  border: none;
+  border-radius: 6px;
+}
+
+.profile_screen .title {
+  margin-top: 5rem;
+  width: 62vw;
+  text-align: left;
+  font-family: sans-serif;
+}
+
+.profile_screen .profile_body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 2rem;
+}
+
+.profile_screen .profile_body img {
+  width: 5rem;
+}
+
+.profile_screen .profile_details {
+  text-align: left;
+  width: 50vw;
+}
+
+.profile_screen .profile_details .profile--email {
+  background-color: gray;
+  padding: 1rem;
 }
 
 @media (min-width: 0px) and (max-width: 550px) {
