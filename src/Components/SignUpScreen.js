@@ -68,11 +68,17 @@ function SignUpScreen() {
           onClick={signIn}
           id="btn"
         />
-        <div className="extra--info">
-          <input type="checkbox" value="Remember me" id="chk--box" />
-          Remember me
-          <p>Need Help?</p>
+
+        <span>OR</span>
+
+        <div className="google">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/281/281764.png"
+            alt=""
+          />
         </div>
+
+        <div className="extra--info"></div>
 
         <div className="registration">
           <span>New to Netflix?</span>
